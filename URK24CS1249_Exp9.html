@@ -1,0 +1,558 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Green Garden Blog</title>
+
+    <!-- AngularJS Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.min.js"></script>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial;
+            margin: 0;
+            background-color: #eef7ee;
+            color: #333;
+        }
+
+        header {
+            background-color: darkgreen;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+        }
+
+        nav a:hover {
+            color: lightgreen;
+        }
+
+        section {
+            width: 85%;
+            margin: 30px auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #ccc;
+        }
+
+        h2 {
+            color: darkgreen;
+            text-align: center;
+        }
+
+        .content {
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .form-group {
+            margin: 15px 0;
+        }
+
+        label {
+            display: inline-block;
+            width: 140px;
+            color: darkgreen;
+        }
+
+        input, select {
+            padding: 9px;
+            width: 220px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        input[type="radio"] {
+            width: auto;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+            margin-left: 145px;
+            display: block;
+        }
+
+        .success {
+            color: green;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background-color: gray;
+            cursor: not-allowed;
+        }
+
+        .card {
+            background-color: #eef7ee;
+            padding: 18px;
+            margin: 12px;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+    </style>
+
+</head>
+
+
+<body ng-app="gardenApp">
+
+    <!-- Header -->
+
+    <header>
+
+        <h1>🌿 Green Garden Blog</h1>
+
+        <p>Grow Plants. Grow Happiness.</p>
+
+    </header>
+
+
+    <!-- Navigation -->
+
+    <nav>
+
+        <a href="#!/">Home</a>
+
+        <a href="#!/plants">Plants</a>
+
+        <a href="#!/tips">Gardening Tips</a>
+
+        <a href="#!/register">Register</a>
+
+    </nav>
+
+
+    <!-- Routing Content -->
+
+    <div ng-view></div>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <h3>Green Garden Blog</h3>
+
+        <p>Learn • Grow • Stay Green</p>
+
+    </footer>
+
+
+    <!-- HOME PAGE -->
+
+    <script type="text/ng-template" id="home.html">
+
+        <section>
+
+            <h2>Welcome to My Garden 🌱</h2>
+
+            <div class="content">
+
+                <p>
+                    Welcome to Green Garden Blog, a place
+                    for people who love plants and nature.
+                </p>
+
+                <p>
+                    Discover beautiful plants, learn gardening
+                    techniques and create your own green space.
+                </p>
+
+                <p>
+                    Join our gardening community and
+                    grow something beautiful!
+                </p>
+
+            </div>
+
+        </section>
+
+    </script>
+
+
+    <!-- PLANTS PAGE -->
+
+    <script type="text/ng-template" id="plants.html">
+
+        <section>
+
+            <h2>🌸 Plants in Our Garden</h2>
+
+            <div class="card">
+                <h3>🌹 Rose</h3>
+                <p>Rose is a beautiful flowering plant that needs sunlight.</p>
+            </div>
+
+            <div class="card">
+                <h3>🌻 Sunflower</h3>
+                <p>Sunflowers grow well in bright sunlight.</p>
+            </div>
+
+            <div class="card">
+                <h3>🌿 Tulsi</h3>
+                <p>Tulsi is a useful herb that requires regular care.</p>
+            </div>
+
+            <div class="card">
+                <h3>🌵 Aloe Vera</h3>
+                <p>Aloe Vera is a medicinal plant that needs less water.</p>
+            </div>
+
+        </section>
+
+    </script>
+
+
+    <!-- GARDENING TIPS PAGE -->
+
+    <script type="text/ng-template" id="tips.html">
+
+        <section>
+
+            <h2>💡 Gardening Tips</h2>
+
+            <div class="card">
+                <p>🌱 Water your plants regularly.</p>
+            </div>
+
+            <div class="card">
+                <p>☀️ Provide enough sunlight to your plants.</p>
+            </div>
+
+            <div class="card">
+                <p>🍂 Remove unwanted weeds and dry leaves.</p>
+            </div>
+
+            <div class="card">
+                <p>🌿 Use natural compost for healthy growth.</p>
+            </div>
+
+            <div class="card">
+                <p>💧 Avoid overwatering your plants.</p>
+            </div>
+
+        </section>
+
+    </script>
+
+
+    <!-- REGISTRATION PAGE -->
+
+    <script type="text/ng-template" id="register.html">
+
+        <section ng-controller="RegistrationController">
+
+            <h2>🌿 User Registration Form</h2>
+
+            <p class="content">
+                Join our gardening community!
+            </p>
+
+            <form name="registrationForm"
+                ng-submit="register()"
+                novalidate>
+
+                <!-- Name -->
+
+                <div class="form-group">
+
+                    <label>Name:</label>
+
+                    <input type="text"
+                        name="name"
+                        ng-model="user.name"
+                        ng-pattern="/^[A-Za-z ]+$/"
+                        placeholder="Enter your name"
+                        required>
+
+                    <span class="error"
+                        ng-show="registrationForm.name.$touched && registrationForm.name.$invalid">
+
+                        Enter a valid name without numbers.
+
+                    </span>
+
+                </div>
+
+
+                <!-- Password -->
+
+                <div class="form-group">
+
+                    <label>Password:</label>
+
+                    <input type="password"
+                        name="password"
+                        ng-model="user.password"
+                        ng-pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$/"
+                        placeholder="Enter password"
+                        required>
+
+                    <span class="error"
+                        ng-show="registrationForm.password.$touched && registrationForm.password.$invalid">
+
+                        Password needs uppercase, lowercase, number and 8 characters.
+
+                    </span>
+
+                </div>
+
+
+                <!-- Age -->
+
+                <div class="form-group">
+
+                    <label>Age:</label>
+
+                    <input type="number"
+                        name="age"
+                        ng-model="user.age"
+                        min="18"
+                        max="30"
+                        placeholder="Enter age"
+                        required>
+
+                    <span class="error"
+                        ng-show="registrationForm.age.$touched && registrationForm.age.$invalid">
+
+                        Age must be between 18 and 30.
+
+                    </span>
+
+                </div>
+
+
+                <!-- Mobile -->
+
+                <div class="form-group">
+
+                    <label>Mobile Number:</label>
+
+                    <input type="text"
+                        name="mobile"
+                        ng-model="user.mobile"
+                        ng-pattern="/^[0-9]{10}$/"
+                        placeholder="10 digit number"
+                        required>
+
+                    <span class="error"
+                        ng-show="registrationForm.mobile.$touched && registrationForm.mobile.$invalid">
+
+                        Enter a valid 10-digit mobile number.
+
+                    </span>
+
+                </div>
+
+
+                <!-- Email -->
+
+                <div class="form-group">
+
+                    <label>Email:</label>
+
+                    <input type="email"
+                        name="email"
+                        ng-model="user.email"
+                        placeholder="Enter email"
+                        required>
+
+                    <span class="error"
+                        ng-show="registrationForm.email.$touched && registrationForm.email.$invalid">
+
+                        Enter a valid email address.
+
+                    </span>
+
+                </div>
+
+
+                <!-- Gender -->
+
+                <div class="form-group">
+
+                    <label>Gender:</label>
+
+                    <input type="radio"
+                        name="gender"
+                        ng-model="user.gender"
+                        value="Male"
+                        required> Male
+
+                    <input type="radio"
+                        name="gender"
+                        ng-model="user.gender"
+                        value="Female"
+                        required> Female
+
+                    <span class="error"
+                        ng-show="registrationForm.gender.$touched && registrationForm.gender.$invalid">
+
+                        Please select gender.
+
+                    </span>
+
+                </div>
+
+
+                <!-- State -->
+
+                <div class="form-group">
+
+                    <label>State:</label>
+
+                    <select name="state"
+                        ng-model="user.state"
+                        required>
+
+                        <option value="">Select State</option>
+
+                        <option>Tamil Nadu</option>
+
+                        <option>Kerala</option>
+
+                        <option>Karnataka</option>
+
+                        <option>Andhra Pradesh</option>
+
+                        <option>Telangana</option>
+
+                        <option>Maharashtra</option>
+
+                        <option>Delhi</option>
+
+                    </select>
+
+                    <span class="error"
+                        ng-show="registrationForm.state.$touched && registrationForm.state.$invalid">
+
+                        Please select a state.
+
+                    </span>
+
+                </div>
+
+
+                <!-- Submit -->
+
+                <div class="content">
+
+                    <button type="submit"
+                        ng-disabled="registrationForm.$invalid">
+
+                        Submit Registration
+
+                    </button>
+
+                    <p class="success">{{message}}</p>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </script>
+
+
+    <!-- ANGULARJS ROUTING AND CONTROLLER -->
+
+    <script>
+
+        // Create AngularJS Application
+
+        var app = angular.module("gardenApp", ["ngRoute"]);
+
+
+        // Configure Routes
+
+        app.config(function($routeProvider) {
+
+            $routeProvider
+
+            .when("/", {
+                templateUrl: "home.html"
+            })
+
+            .when("/plants", {
+                templateUrl: "plants.html"
+            })
+
+            .when("/tips", {
+                templateUrl: "tips.html"
+            })
+
+            .when("/register", {
+                templateUrl: "register.html"
+            })
+
+            .otherwise({
+                redirectTo: "/"
+            });
+
+        });
+
+
+        // Registration Controller
+
+        app.controller("RegistrationController", function($scope) {
+
+            $scope.user = {};
+
+            $scope.register = function() {
+
+                $scope.message =
+                    "Registration Successful! Welcome to Green Garden Blog 🌱";
+
+            };
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
